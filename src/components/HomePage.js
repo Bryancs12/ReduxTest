@@ -10,11 +10,10 @@ import { Card } from './card/Card';
 export const HomePage = () => {
 
    const {numOfCakes, otherCounter} = useSelector(state => state.products);
-   const [{id, name},{id1, name1}] = useSelector(state=>state.champions);
+   const {champions} = useSelector(state=>state.champions);
+   const dispatch = useDispatch();
 
- 
-  
-    const dispatch = useDispatch();
+
 
     const test = () =>{
         dispatch(orderCake())
@@ -23,6 +22,7 @@ export const HomePage = () => {
     const resetButton = () =>{
       dispatch(reset())
     }
+
  
 
   return (
@@ -37,10 +37,20 @@ export const HomePage = () => {
           <Buttons name="Reset counter" e={resetButton} />       
        </div>
 
-       <Card idC={id} nameC={name} />
-       <Card idC={id1} nameC={name1} />
-
+        { 
+            
+          champions?.map(champion => (
+            <Card 
+              key={champion.id} 
+              idC={champion.id} 
+              nameC={champion.name} 
+            />
+          ))
       
+          
+          
+        }
+
         
     </div>
   )

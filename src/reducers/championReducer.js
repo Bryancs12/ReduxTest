@@ -1,32 +1,31 @@
 import { types } from "../types/types"
 
-const initialState  = [
-    {
-        id : 1,
-        name : 'Prueba'
-    },
-    {
-        id1 : 2,
-        name1: 'Prueba2'
-    },
-
-]
+const initialState  = {
+    champions: [
+        {
+            id : 1,
+            name : 'Prueba',
+            purchased : false
+        },
+        {
+            id: 2,
+            name: 'Prueba2',
+            purchased : false
+        }
+    ]
+}
     
-            
-        
-        
-
-
-
-
 export const championReducer = (state = initialState, action) =>{
     switch(action.type){
 
-        case types.CHAMPION_DATA :
+        case types.BUY_CHAMP :
             return {
                 ...state,
-                champions : [...state.champions]  
+                purchased: null,
+                champions: state.champions.filter(champ => champ.id !== action.payload)
             }
+        
+    
 
 
         default :

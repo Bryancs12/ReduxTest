@@ -3,4 +3,5 @@ export const types = {
     RESET_COUNT : '[Products] reset count',
 
     CHAMPION_DATA : '[Champions] Champion data',
+    BUY_CHAMP : '[Champions] Buy champ',
 }

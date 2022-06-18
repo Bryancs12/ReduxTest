@@ -5,3 +5,11 @@ export const champion = () =>{
         type : types.CHAMPION_DATA
     }
 }
+
+
+export const BuyChamp = (id) =>{
+    return {
+        type : types.BUY_CHAMP,
+        payload: id
+    }
+}
