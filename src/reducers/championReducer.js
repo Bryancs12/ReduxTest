@@ -4,14 +4,25 @@ const initialState  = {
     champions: [
         {
             id : 1,
-            name : 'Prueba',
-            purchased : false
+            name : 'Katarina',
+            URL : 'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Katarina_0.jpg'
         },
         {
             id: 2,
-            name: 'Prueba2',
-            purchased : false
-        }
+            name: 'LeBlanc',
+            URL : 'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Leblanc_0.jpg'
+        },
+        {
+            id: 3,
+            name: 'Akali',
+            URL : 'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Akali_0.jpg'
+            
+        },
+        {
+            id: 4,
+            name: 'Teemo',
+            URL : 'https://forums.comunidades.riotgames.com/t5/image/serverpage/image-id/25777i54760EF621297D96?v=v2'
+        },
     ]
 }
     
@@ -21,7 +32,6 @@ export const championReducer = (state = initialState, action) =>{
         case types.BUY_CHAMP :
             return {
                 ...state,
-                purchased: null,
                 champions: state.champions.filter(champ => champ.id !== action.payload)
             }
         

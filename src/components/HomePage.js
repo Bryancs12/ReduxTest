@@ -5,8 +5,6 @@ import { Buttons } from './button/Buttons';
 import { Card } from './card/Card';
 
 
-
-
 export const HomePage = () => {
 
    const {numOfCakes, otherCounter} = useSelector(state => state.products);
@@ -37,19 +35,23 @@ export const HomePage = () => {
           <Buttons name="Reset counter" e={resetButton} />       
        </div>
 
-        { 
+       <div className='grid grid-cols-4 p-4 gap-4'>
+       {       
+            champions?.map(champion => (
+              <Card 
+                key={champion.id} 
+                idC={champion.id} 
+                nameC={champion.name}
+                imageURL={champion.URL}
+              />
+            ))
+        
             
-          champions?.map(champion => (
-            <Card 
-              key={champion.id} 
-              idC={champion.id} 
-              nameC={champion.name} 
-            />
-          ))
-      
-          
-          
-        }
+            
+          }
+       </div>
+
+        
 
         
     </div>
